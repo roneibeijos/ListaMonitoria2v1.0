@@ -20,7 +20,6 @@ principal
 
 	qtdJogadores=0;
 	para(controlaTd de 3 ate 9 passo 1)faca
-
 		somaIdade=0;
 		contJogador=0;
 		somaPesoMaior=0;

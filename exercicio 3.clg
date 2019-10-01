@@ -13,18 +13,13 @@ principal
 	escreval("Digite a quantidade de localidades levantadas: ");
 	leia(qtdLocal);
 	verificaLocal(qtdLocal);
-
 	contador=0;
 	faca
 		escreval("Digite o nome da localidade: ");
 		leia(nomeLocal);
 		verificaNomeLocal(nomeLocal);
-
-
-
 		escreval("Digite a quantidade de construções: ");
 		leia(qtdConstrucoes);
-
 		numeroComercio=0;
 		numeroResidencia=0;
 		totalFocos=0;
@@ -33,7 +28,6 @@ principal
 			leia(qtdFocos);
 			verificaFocos(qtdFocos);
 			totalFocos=totalFocos+qtdFocos;
-
 			escreval("Digite (C)COMÉRCIO e (R)RESIDÊNCIA.");
 			leiaCaracter(caracteristica);
 			se(caracteristica=='C' ou caracteristica=='c')entao
@@ -44,7 +38,6 @@ principal
 				fimSe
 			fimSe
 		fimPara
-
 	enquanto(qtdLocal<contador);
 	limpaTela();
 	escreval("Nome da localidade: ",nomeLocal);
@@ -60,7 +53,6 @@ procedimento verificaLocal(inteiro qtdLocal)
 		fimSe
 	enquanto(qtdLocal<3);
 fimProcedimento
-
 procedimento verificaNomeLocal(texto nomeLocal)
 	faca
 		se(tamanhoTexto(nomeLocal)==0)entao
