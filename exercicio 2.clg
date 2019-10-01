@@ -1,0 +1,63 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo:
+//  Entrada :
+//  Saída   :
+
+
+principal
+	inteiro controle,controlaTd,contJogador,times,somaIdade,somaMaiorPeso,idade,peso,somaPesoMaior;
+	inteiro qtdPesados,jogadorMenor,qtdJogadores;
+	real media,mediaIdade,porcentagemAcima;
+
+	faca
+		escreval("Digite a quantidade de times: ");
+		leia(times);
+		se(times<3 ou times>9)entao
+			escreval("Vocês só pode cadastrar de 3 a 9 times.");
+		fimSe
+	enquanto(times<3 ou times>9);
+
+	qtdJogadores=0;
+	para(controlaTd de 3 ate 9 passo 1)faca
+
+		somaIdade=0;
+		contJogador=0;
+		somaPesoMaior=0;
+		jogadorMenor=0;
+		qtdPesados=0;
+		para(controle de 6 ate 11 passo 1)faca
+			qtdJogadores=qtdJogadores+1;
+			escreval("Digite a idade do jogador: ");
+			leia(idade);
+			somaIdade=somaIdade+idade;
+			escreval("Digite o peso do jogador: ");
+			leia(peso);
+			se(idade>25)entao
+				contJogador=contJogador+1;
+				somaPesoMaior=somaPesoMaior+peso;
+			fimSe
+			se(idade<18)entao
+				jogadorMenor=jogadorMenor+1;
+			fimSe
+			se(peso>80)entao
+				qtdPesados=qtdPesados+1;
+			fimSe
+		fimPara
+		se(contJogador==0)entao
+			escreval("Nenhum jogador tinha mais de 25 anos.");
+		senao
+			se(contJogador>0)entao
+				media=somaPesoMaior/contJogador;
+				escreval("A media de peso dos jogadores acima de 25 anos é de: ", media, " KG");
+			fimSe
+		fimSe
+		limpaTela();
+		porcentagemAcima=qtdPesados*100/qtdJogadores;
+		escreval(jogadorMenor, " Jogadores menores de idade.");
+		escreval(qtdPesados, " Acima de 80 KG. ");
+		mediaIdade=somaIdade/controle;
+		escreval("A media das idades dos jogadores do time é: ", mediaIdade, " anos");
+		escreval(porcentagemAcima, " %  dos jogadores acima do peso.");
+	fimPara
+fimPrincipal

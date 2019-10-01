@@ -1,0 +1,73 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo: Dizer se um profissional ganha acima, igual ou abaixo do salario mínimo,apresentar o sexo.
+//  Entrada : salario, sexo,
+//  Saída   : Salário por extenso
+
+
+principal
+
+	inteiro pesquisados, cont,qtdAcima,qtdAbaixo;
+	real salario;
+	caracter sexo;
+
+	faca
+		escreval("Digite a quantidade de assalariados pesquisados: ");
+		leia(pesquisados);
+	enquanto(pesquisados<=0);
+	cont=0;
+	qtdAcima=0;
+	qtdAbaixo=0;
+	enquanto(cont<pesquisados)faca
+		cont=cont+1;
+		escreval("Digite o sexo do profissional: ");
+		leiaCaracter(sexo);
+		validaSexo(sexo);
+		escreval("Digite o valor do salário: ");
+		leia(salario);
+		se(salario<954)entao
+			qtdAbaixo=qtdAbaixo+1;
+		senao
+			se(salario>954)entao
+				qtdAcima=qtdAcima+1;
+			fimSe
+		fimSe
+		limpaTela();
+		mostraSalario(salario);
+		mostraSexo(sexo);
+		classificaSalario(salario);
+		escreval("QUANTOS GANHAM ACIMA DO MÍNIMO: ", qtdAcima);
+		escreval("QUANTOS GANHAM ABAIXO DO MÍNIMO: ", qtdAbaixo);
+	fimEnquanto
+fimPrincipal
+procedimento validaSexo(caracter sexo)
+	se(sexo!='m' e sexo!='M' e sexo!='f' e sexo!='F')entao
+		escreval("Digite o sexo do profissional: ");
+		leiaCaracter(sexo);
+	fimSe
+fimProcedimento
+procedimento mostraSexo(caracter sexo)
+	se(sexo=='f' ou sexo=='F')entao
+		escreval("SEXO: FEMININO");
+	senao
+		se(sexo=='m' ou sexo=='M')entao
+			escreval("SEXO: MASCULINO");
+		fimSe
+	fimSe
+fimProcedimento
+procedimento classificaSalario(real salario)
+	se(salario<954)entao
+		escreval("ABAIXO DO SALÁRIO MÍNIMO");
+	senao
+		se(salario==954)entao
+			escreval("IGUAL AO SALÁRIO MÍNIMO");
+		senao
+			se(salario>954)entao
+				escreval("ACIMA DO SALÁRIO MÍNIMO");
+			fimSe
+		fimSe
+	fimSe
+fimProcedimento
+procedimento mostraSalario(real salario)
+	escreval("SALÁRIO DO PROFISSIONAL R$: ", salario);
+fimProcedimento

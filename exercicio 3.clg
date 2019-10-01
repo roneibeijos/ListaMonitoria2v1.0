@@ -1,0 +1,82 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo:
+//  Entrada :
+//  Saída   :
+
+
+principal
+	inteiro contador,controle,controle2,qtdLocal,qtdConstrucoes,qtdFocos,numeroResidencia,numeroComercio,totalFocos;
+	texto nomeLocal;
+	caracter caracteristica;
+
+	escreval("Digite a quantidade de localidades levantadas: ");
+	leia(qtdLocal);
+	verificaLocal(qtdLocal);
+
+	contador=0;
+	faca
+		escreval("Digite o nome da localidade: ");
+		leia(nomeLocal);
+		verificaNomeLocal(nomeLocal);
+
+
+
+		escreval("Digite a quantidade de construções: ");
+		leia(qtdConstrucoes);
+
+		numeroComercio=0;
+		numeroResidencia=0;
+		totalFocos=0;
+		para(controle2 de 1 ate qtdConstrucoes passo 1)faca
+			escreval("Digite a quantidade de focos: ");
+			leia(qtdFocos);
+			verificaFocos(qtdFocos);
+			totalFocos=totalFocos+qtdFocos;
+
+			escreval("Digite (C)COMÉRCIO e (R)RESIDÊNCIA.");
+			leiaCaracter(caracteristica);
+			se(caracteristica=='C' ou caracteristica=='c')entao
+				numeroComercio=numeroComercio+1;
+			senao
+				se(caracteristica=='R' ou caracteristica=='r')entao
+					numeroResidencia=numeroResidencia+1;
+				fimSe
+			fimSe
+		fimPara
+
+	enquanto(qtdLocal<contador);
+	limpaTela();
+	escreval("Nome da localidade: ",nomeLocal);
+	escreval("Numero comércio: ",numeroComercio);
+	escreval("Numero de residências: ",numeroResidencia);
+	escreval("Total Focos: ",totalFocos);
+fimPrincipal
+procedimento verificaLocal(inteiro qtdLocal)
+	faca
+		se(qtdLocal<3)entao
+			escreval("Digite uma quantidade maior ou igual a três.");
+			leia(qtdLocal);
+		fimSe
+	enquanto(qtdLocal<3);
+fimProcedimento
+
+procedimento verificaNomeLocal(texto nomeLocal)
+	faca
+		se(tamanhoTexto(nomeLocal)==0)entao
+			escreval("Digite um nome para a localidade: ");
+			leia(nomeLocal);
+		fimSe
+	enquanto(tamanhoTexto(nomeLocal)==0);
+fimProcedimento
+procedimento verificaFocos(inteiro qtdFocos)
+	faca
+		se(qtdFocos<0 ou qtdFocos>100)entao
+			escreval("Digite uma quantidade de focos válida: ");
+			leia(qtdFocos);
+		fimSe
+	enquanto(qtdFocos<0 ou qtdFocos>100);
+fimProcedimento
+
+
+
