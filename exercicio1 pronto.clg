@@ -1,0 +1,41 @@
+algoritmo semNome;
+// Síntese
+//  Objetivo: Calcular o salário de funcionários com base na produção de peças.
+//  Entrada : Quantidade de peças produzidas.
+//  Saída   : Salário do funcionário.
+
+
+principal
+	inteiro qtdPecas,salarioBase;
+		
+	salarioBase=600;
+	validaQuantidade(qtdPecas);
+	mostraFinal(calculaSalario(qtdPecas,salarioBase));
+	
+fimPrincipal
+procedimento validaQuantidade(ref inteiro qtdPecas)
+	faca
+		escreval("Digite a quantidade peças fabricadas: ");
+		leia(qtdPecas);
+	enquanto(qtdPecas<=0);
+fimProcedimento
+funcao real calculaSalario(ref inteiro qtdPecas,ref inteiro salarioBase)
+	real salarioFinal;
+	inteiro salariobase;
+	se(qtdPecas<=50)entao
+		salarioFinal=salarioBase;
+	fimSe
+	se(qtdPecas>50 e qtdPecas<=80)entao
+		salarioFinal=salarioBase+(0.50*(qtdPecas-50));
+	senao
+		se(qtdPecas>80)entao
+			salarioFinal=salarioBase+(0.50*30)+(0.75*(qtdPecas-80));
+		fimSe
+	fimSe
+	retorna salarioFinal;
+fimFuncao
+procedimento mostraFinal(real resultado)
+limpaTela();
+escreval("O salário do funcionário é R$: ", resultado);
+fimProcedimento
+
